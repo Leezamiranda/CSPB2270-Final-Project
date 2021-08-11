@@ -1,2 +1,2 @@
-# CSCI 2275 – Data Structures - Assignment X
+# CSCI 2275 – Data Structures - Assignment 0
 

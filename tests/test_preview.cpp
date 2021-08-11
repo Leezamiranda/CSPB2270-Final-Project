@@ -2,7 +2,7 @@
 // in your homework submission.
 // Chekout TEST_F functions bellow to learn what is being tested.
 #include <gtest/gtest.h>
-// #include "../code_1/<HEADER FILE>.hpp"
+#include "../code_1/functions.hpp"
 
 #include <fstream>
 #include <iostream>
@@ -85,7 +85,15 @@ std::string exec(const char* cmd) {
 // Tests start here
 /////////////////////////////////////////
 
-TEST_F(test_x, TestFunction){
-
+TEST_F(test_x, TestFooA){
+	int fooAreturn = fooA();
+	ASSERT_EQ(7,fooAreturn);
+	add_points_to_grade(10);
 }
 
+TEST_F(test_x, TestApp_1){
+	string resp = exec("./run_app_1 hello penguin");
+	string desired_result = "hello penguin\n";
+	ASSERT_EQ(resp, desired_result);
+	add_points_to_grade(10);
+}
