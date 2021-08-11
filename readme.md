@@ -37,8 +37,8 @@ jovyan@jupyter-yourcuid:~$ git clone https://github.com/cu-csci-2270-fall-2021/a
     jovyan@jupyter-yourcuid:~$ make
     ``` 
     * Now we have two executable ready to run, `run_app_1` and `run_tests` (Note: in future assignments, you will sometimes have more than one `run_app` executable.) 
-        * `run_app_1` is the exectuable that was build using your `/app_1` and `/code_1` source code files. You can use this to try a `Hello World` type of program to get familiar with the framework. 
-        * `run_tests` is the exectuable containing the test cases that will beused for your assignment. Running this prior to solving any of the required problems should give you a score of 0.
+        * `run_app_1` is the executable that was build using your `/app_1` and `/code_1` source code files. You can use this to try a `Hello World` type of program to get familiar with the framework. 
+        * `run_tests` is the executable containing the test cases that will be used for your assignment. Running this prior to solving any of the required problems should give you a score of 0.
         * Both executables will be located within the build directory, so run the following terminal command to execute:  
     ```console
     jovyan@jupyter-yourcuid:~$ ./run_app_1
