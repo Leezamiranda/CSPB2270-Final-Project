@@ -32,7 +32,7 @@ protected:
 			outgrade.clear();
 			outgrade << (int)std::ceil(100*total_grade/max_grade);
 			outgrade.close();
-			std::cout << "Total Grade is : " << (int)std::ceil(100*total_grade/max_grade) << std::endl;
+			std::cout << "Total Grade is : " << (int)std::ceil(100*total_grade/max_grade) << " out of 20"<< std::endl;
 		}
 	}
 
