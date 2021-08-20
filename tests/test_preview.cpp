@@ -88,12 +88,12 @@ std::string exec(const char* cmd) {
 TEST_F(test_x, TestFooA){
 	int fooAreturn = fooA();
 	ASSERT_EQ(7,fooAreturn);
-	add_points_to_grade(10);
+	add_points_to_grade(50);
 }
 
 TEST_F(test_x, TestApp_1){
 	string resp = exec("./run_app_1 hello penguin");
 	string desired_result = "hello penguin\n";
 	ASSERT_EQ(resp, desired_result);
-	add_points_to_grade(10);
+	add_points_to_grade(50);
 }
