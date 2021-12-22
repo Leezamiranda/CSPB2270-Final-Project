@@ -1,6 +1,6 @@
-# CSCI 2275 – Data Structures - Assignment 0
+# CSCI 2270 – Data Structures - Assignment 0
 ## Overview
-Welcome to your first CSCI 2275 assignment! This is a preview assignment to get you acquainted with the workflow of the coding assignments for this class. While the coding aspect of this assignment is trivial, it is still very important that you complete it to so you are ready to tackle the challenges of the future assignments.
+Welcome to your first CSCI 2270 assignment! This is a preview assignment to get you acquainted with the workflow of the coding assignments for this class. While the coding aspect of this assignment is trivial, it is still very important that you complete it to so you are ready to tackle the challenges of the future assignments.
 
 ## Objectives
 
@@ -11,17 +11,17 @@ Welcome to your first CSCI 2275 assignment! This is a preview assignment to get 
 
 
 ## Where to Start
-Having accepted your assignment in GitHub Classroom, a "private" repository has been automatically created for you. The repository can only be viewed by you and the CSCI 2275 teaching team. Other students cannot see your repo. You can view the contents of your repo by going to the link which was created for you upon accepting the assignment. Once you are ready to begin working on the assignment you will need to *clone* the repository into a suitable development environment. We recommend that you use JupyterHub as your coding environment, and the instructions are provided below. Alternatively, you can use your personal Linux/Mac/Windows machine, but you are on your own as far as setting up the environment (If you are using Windows, you should have the Windows Subsystem for Linux and Ubuntu installed.)
+Having accepted your assignment in GitHub Classroom, a "private" repository has been automatically created for you. The repository can only be viewed by you and the CSCI 2270 teaching team. Other students cannot see your repo. You can view the contents of your repo by going to the link which was created for you upon accepting the assignment. Once you are ready to begin working on the assignment you will need to *clone* the repository into a suitable development environment. We recommend that you use JupyterHub as your coding environment, and the instructions are provided below. Alternatively, you can use your personal Linux/Mac/Windows machine, but you are on your own as far as setting up the environment (If you are using Windows, you should have the Windows Subsystem for Linux and Ubuntu installed.)
 
 1. Got to JuptyerHub in your browser by navigating to https://coding.csel.io/
 2. Choose the CSCI 2270 Data Structures environment
 3. Select `File -> New -> Terminal`
 4. Now you are ready to *clone* your repository from the remote GitHub repo to your local JupyterHub directory. You can do so by issuing the following command, replacing the SSH URL with your personal one. You can find your unique URL by clicking on the green *Code* icon on your GitHub page.  
 ```console
-jovyan@jupyter-yourcuid:~$ git clone https://github.com/cu-csci-2270-fall-2021/assignment-0-<your_github_handle>.git
+jovyan@jupyter-yourcuid:~$ git clone https://github.com/cu-cspb-2270-Spring-2022/assignment-0-<your_github_handle>.git
 ```
 5. At this point you can begin working with your code. We recommend that you use the VSCode editor environment. Go to `File -> New -> Launcher` and click on `VS Code IDE`. This opens a new browser tab.
-6. Within VS-Code, select `File -> Open` and then find the directory you just cloned. It should be `/home/jovyan/Assinment-0-username`. 
+6. Within VS-Code, select `File -> Open` and then find the directory you just cloned. It should be `/home/jovyan/Assignment-0-username`. 
 7. Before we start writing any code, let's compile the starter code and see how we can run the executables.
     * Open up the terminal: `Terminal > New Terminal`
     * Navigate to `build` directory
@@ -74,4 +74,4 @@ Now let's take a look at the next test case, `TestApp_1`. This one actually runs
 
 
 ## Submission
-In order to submit your assignment, paste your GitHub repository link into the INGInious item for Assignment-0 provided on Canvas. Make sure you do submit your assignment prior to the deadline specified on Canvas. INGInious will pull the files from `code_1` and `app_1` directories and grade them using the same set of test cases as given in `test_preview.cpp`. 
+In order to submit your assignment, paste your GitHub repository link into the INGInious item for Assignment-0 provided on Moodle. Make sure you do submit your assignment prior to the deadline specified on Moodle. INGInious will pull the files from `code_1` and `app_1` directories and grade them using the same set of test cases as given in `test_preview.cpp`. 
