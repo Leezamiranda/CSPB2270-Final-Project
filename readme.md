@@ -20,6 +20,8 @@ Having accepted your assignment in GitHub Classroom, a "private" repository has 
 ```console
 jovyan@jupyter-yourcuid:~$ git clone https://github.com/cu-cspb-2270-Spring-2022/assignment-0-<your_github_handle>.git
 ```
+ * You can also clone a repository within the JupyterHub graphical interface.  See video https://youtu.be/M293X5ssks4 for an example of cloning a repository using the built-in interface to Git.
+
 5. At this point you can begin working with your code. We recommend that you use the VSCode editor environment. Go to `File -> New -> Launcher` and click on `VS Code IDE`. This opens a new browser tab.
 6. Within VS-Code, select `File -> Open` and then find the directory you just cloned. It should be `/home/jovyan/Assignment-0-username`. 
 7. Before we start writing any code, let's compile the starter code and see how we can run the executables.
@@ -28,7 +30,7 @@ jovyan@jupyter-yourcuid:~$ git clone https://github.com/cu-cspb-2270-Spring-2022
     ```console
     jovyan@jupyter-yourcuid:~$ cd build/
     ```  
-    * Run `CMake` to set up the build environment 
+    * Run `CMake` to set up the build environment (creates files in _build_ subdirectory that are needed to build the application)
     ```console
     jovyan@jupyter-yourcuid:~$ cmake ..
     ``` 
@@ -45,7 +47,10 @@ jovyan@jupyter-yourcuid:~$ git clone https://github.com/cu-cspb-2270-Spring-2022
     ``` 
 
 ## Completing the Assignment
-For this assignment, we intentionally made this part trivial. In the future assignments, the initial setup steps (as described in the previous section) should only take a moment, and the bulk of your required work will be described here.  
+For this assignment, we intentionally made this part trivial. In the future assignments, the initial setup steps described above should only take a moment to complete for any assignment.  The bulk of your required work will be described in this section.
+1. After running the application, determine what is being tested for this assignment See the __Test Cases__ section below.
+2. Make a modification to the code to __Pass__ the test. (hint: each time you make changes to the code, be sure to save your edits to the code, _make_ the application with the new code, and then test the resulting application)
+3. We suggest that you save your save the version of your code each time you get a test to pass. Make sure to save it both locally and on the GitHub server. 
 
 ### Checking code into GitHub
 **Important:** one of the main advantages of using git and GitHub is that it gives you a very convenient way to back up your changes. For now, you will only need to know how to `add`, `commit`, and `push`.  (You are encouraged to learn further git commands throughout the semester.) Any time you get to a point where you want to save your code (for example, you got a function to pass a test case), do the following in the terminal:
