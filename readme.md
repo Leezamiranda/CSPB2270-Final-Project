@@ -1,6 +1,6 @@
 # CSCI 2270 – Data Structures - Assignment 0
 ## Overview
-Welcome to your first CSCI 2270 assignment! This is a preview assignment to get you acquainted with the workflow of the coding assignments for this class. While the coding aspect of this assignment is trivial, it is still very important that you complete it to so you are ready to tackle the challenges of the future assignments.
+Welcome to your first CSCI 2270 assignment! This is a preview assignment to get you acquainted with the workflow of the coding assignments for this class. While the coding aspect of this assignment is trivial, it is still very important that you complete it to so you are ready to tackle the challenges of the future assignments. GitHub Classroom will be used to distribute the assignments to a privite repository for you.  The private respoitory will be used to grade your assignment.
 
 ## Objectives
 
