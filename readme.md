@@ -38,13 +38,18 @@ jovyan@jupyter-yourcuid:~$ git clone https://github.com/cu-cspb-2270-Spring-2022
     ```console
     jovyan@jupyter-yourcuid:~$ make
     ``` 
-    * Now we have two executable ready to run, `run_app_1` and `run_tests` (Note: in future assignments, you will sometimes have more than one `run_app` executable.) 
+    * Now we have two executable ready to run, `run_app_1` and `run_tests_1` (Note: in future assignments, you will sometimes have more than one `run_app` and run_tests executable.) 
         * `run_app_1` is the executable that was build using your `/app_1` and `/code_1` source code files. You can use this to try a `Hello World` type of program to get familiar with the framework. 
-        * `run_tests` is the executable containing the test cases that will be used for your assignment. Running this prior to solving any of the required problems should give you a score of 0.
+        * `run_tests_1` is the executable containing the test cases that will be used for your assignment. Running this prior to solving any of the required problems should give you a score of 0.
         * Both executables will be located within the build directory, so run the following terminal command to execute:  
     ```console
     jovyan@jupyter-yourcuid:~$ ./run_app_1
     ``` 
+    
+8. Each time you modify one of the source files (i.e. main_1.cpp) you must rebuild the executables. Each one of these steps is critical to getting your changed code to be executed. 
+    * Save your changes to disk.  The compiler will only see the changes that have been saved to disk.
+    * Issue ```make``` command (must be run from the ```build``` directory).  This  will recompile the needed source files and rebuild the executables.
+    * Run the application or run the tests.  
 
 ## Completing the Assignment
 For this assignment, we intentionally made this part trivial. In the future assignments, the initial setup steps described above should only take a moment to complete for any assignment.  The bulk of your required work will be described in this section.
@@ -58,7 +63,7 @@ For this assignment, we intentionally made this part trivial. In the future assi
     ```console
     $ git add functions.cpp
     ```
-2. Commit the changes to our local repository:
+2. Commit the changes to our local repository. The ```-m``` option allows you to add the required commit comment on the cmmand line.  Use a short comment that has meaning about what changes were made (e.g. "fixed output for test 2" or "added comments to all functions") 
     ```console
     $ git commit -m 'this is my first commit'
     ```
@@ -72,7 +77,7 @@ You can run the above steps as many times as you want. Each time you commit/push
 Open up the test code file `/tests/test_preview.cpp` to see what test cases you need to pass to get points on the assignment. 
 
 #### Part 1
-In `test_preview.cpp` scroll down until you find the test function labeled `TestFooA`. You can see that this is a unit test for the `fooA()` function. An assert is used to check the output for correctness. Go to `/code_1/functions.cpp` to see if you can implement this function to return the correct output (again, this is intentionally trivial.) Once you have written the code and you want to check your solution, run `make` (remember to stay in the `build` directory). Then run the test executable `run_tests` and see if you pass the first test case. *If you are happy with your code, go ahead and run through the steps described above in the Checking code into GitHub section.*
+In `test_preview.cpp` scroll down until you find the test function labeled `TestFooA`. You can see that this is a unit test for the `fooA()` function. An assert is used to check the output for correctness. Go to `/code_1/functions.cpp` to see if you can implement this function to return the correct output (again, this is intentionally trivial.) Once you have written the code and you want to check your solution, run `make` (remember to stay in the `build` directory). Then run the test executable `run_tests_1` and see if you pass the first test case. *If you are happy with your code, go ahead and run through the steps described above in the Checking code into GitHub section.*
 
 #### Part 2
 Now let's take a look at the next test case, `TestApp_1`. This one actually runs your `main()` function to check whether it prints the desired results in `stdout`. Look at the test case to see what the desired result needs to be, then go into `/app_1/main_1.cpp` and add the code to get a matching result.
