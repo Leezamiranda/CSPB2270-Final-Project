@@ -1,8 +1,3 @@
 {
-    "git.enabled": true,
-    "git.path": null,
-    "git.autofetch": false,
-    "files.associations": {
-        "memory": "cpp"
-    }
+    
 }

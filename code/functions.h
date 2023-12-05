@@ -7,7 +7,6 @@
 
 using namespace std;
 
-// TODO add detailed explanation on what the function should do
 int fooA();
 
 #endif // READFILE_H__

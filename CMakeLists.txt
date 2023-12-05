@@ -12,11 +12,10 @@ get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 string(REPLACE " " "_" ProjectId ${ProjectId})
 project(${ProjectId})
 
-# defince cmake variables for file locations
+# define cmake variables for file locations
 file(GLOB USER_FILES_1
-"code_1/*.h"
-"code_1/*.cpp"
-"code_1/*.hpp"
+"code/*.h"
+"code/*.cpp"
 )
 
 
@@ -32,8 +31,8 @@ if(GTEST_FOUND)
 	include_directories(${GTEST_INCLUDE_DIRS})
 
 	# create an executable for all tests 
-	add_executable( run_tests_1 ${TEST_FILES} ${USER_FILES_1} )
-	target_link_libraries( run_tests_1 gtest_main ${GTEST_LIBRARIES} pthread)
+	add_executable( run_tests ${TEST_FILES} ${USER_FILES_1} )
+	target_link_libraries( run_tests gtest_main ${GTEST_LIBRARIES} pthread)
 
 else()
 	message(">> Couldn't find Local GTest library, Downloading one instead ...")
@@ -73,4 +72,4 @@ endif()
 ENABLE_TESTING()
 
 # create an executables in the app folder
-add_executable( run_app_1 "app_1/main_1.cpp" ${USER_FILES_1} )
+add_executable( run_app "app/main.cpp" ${USER_FILES_1} )
