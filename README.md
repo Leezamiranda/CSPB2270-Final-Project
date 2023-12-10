@@ -37,7 +37,7 @@ Once you get used to doing this, it will become second nature.
 
 The above `git clone` command uses an ssh key to securely identify who you are to GitHub. You'll need this regardless of where you do your development. To set this up, let's follow [GitHub's instructions on ssh keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent). That process is summarized here so you can copy/paste. You only need to do this one time for a development machine.
 
-First make a public/private keypair. Be sure to edit this command to use the email address that GitHub knows about. It will ask you questions; you can just hit Enter to accept the default file name and to not set a passphrase.
+First make a public/private key pair. Be sure to edit this command to use the email address that GitHub knows about. It will ask you questions; you can just hit Enter to accept the default file name and to not set a passphrase.
 
 ```console
 $ ssh-keygen -t ed25519 -C "your_email@example.com" # generate a public/private key pair
@@ -53,7 +53,7 @@ It will produce something like `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFDNwrIYl7vb
 
 Now open a browser to your GitHub SSH Key settings at [https://github.com/settings/keys](https://github.com/settings/keys). Click the "New SSH Key" button. Give it an obvious name that identifies how you use it, like "JupyterHub ssh key", and paste your public key into the "Key" box. Save it. The page reloads and you should see that key in your list. Groovy.
 
-Go back to your terminal and try to clone the homework repostiory.
+Go back to your terminal and try to clone the homework repository.
 
 ```console
 $ git clone git@github.com:cu-cspb-2270-Fall-2023/pa0-johnsogg.git
@@ -65,7 +65,7 @@ The good news is you now never have to do this again! Whenever you want to clone
 
 ## Local computer setup
 
-In order for the above to work, you need to have git, a C++ toolchain, and cmake installed. On a Mac, you can install git and the C++ toolchain by installing XCode developer tools. You can install cmake via Homebrew (go to the [Homebrew website](https://brew.sh/) and follow the directions, and then install cmake with `brew install cmake`.
+In order for the above to work, you need to have git, a C++ toolchain, and CMake installed. On a Mac, you can install git and the C++ toolchain by installing XCode developer tools. You can install CMake via Homebrew (go to the [Homebrew website](https://brew.sh/) and follow the directions, and then install CMake with `brew install cmake`.
 
 You'll need an editor. Students in the recent past have had good luck with VS Code and CLion.
 
@@ -149,7 +149,7 @@ We intentionally made this part trivial. In the future assignments, the initial 
    $ git add functions.cpp
    ```
 
-2. Commit the changes to our local repository. The `-m` option allows you to add the required commit comment on the cmmand line. Use a short comment that has meaning about what changes were made (e.g. "fixed output for test 2" or "added comments to all functions")
+2. Commit the changes to our local repository. The `-m` option allows you to add the required commit comment on the command line. Use a short comment that has meaning about what changes were made (e.g. "fixed output for test 2" or "added comments to all functions")
 
    ```console
    $ git commit -m 'this is my first commit'
@@ -165,11 +165,11 @@ You can run the above steps as many times as you want. Each time you commit/push
 
 ### Test Cases
 
-Open up the test code in the `/tests` directory to see what test cases you need to pass to get points on the assignment. For this assignment this is a file called `test_preview.cpp` but the exact name will differ from assignment to assignment. **It will be extremely useful for you to be able to read and understand what the test cases are doing.** You can learn from the unit tests and there are often hints contained in them (intentionally or otherwise).
+Open up the test code in the `/tests` directory to see what test cases you need to pass to get points on the assignment. For this assignment this is a file called `test.cpp` but the exact name will differ from assignment to assignment. **It will be extremely useful for you to be able to read and understand what the test cases are doing.** You can learn from the unit tests and there are often hints contained in them (intentionally or otherwise).
 
 #### Part 1
 
-In `test_preview.cpp` scroll down until you find the test function labeled `TestFooA`. You can see that this is a unit test for the `fooA()` function. An assertion is used to check the output for correctness. Go to `/code/functions.cpp` to see if you can implement this function to return the correct output (again, this is intentionally trivial.) Once you have written the code and you want to check your solution, run `make` (remember to stay in the `build` directory). Then run the test executable `run_tests` and see if you pass the first test case. _If you are happy with your code, go ahead and run through the steps described above in the Checking code into GitHub section._
+In `test.cpp` scroll down until you find the test function labeled `TestFooA`. You can see that this is a unit test for the `fooA()` function. An assertion is used to check the output for correctness. Go to `/code/functions.cpp` to see if you can implement this function to return the correct output (again, this is intentionally trivial.) Once you have written the code and you want to check your solution, run `make` (remember to stay in the `build` directory). Then run the test executable `run_tests` and see if you pass the first test case. _If you are happy with your code, go ahead and run through the steps described above in the Checking code into GitHub section._
 
 #### Part 2
 
@@ -177,4 +177,4 @@ Now let's take a look at the next test case, `TestApp_1`. This one actually runs
 
 ## Submission
 
-In order to submit your assignment, paste your GitHub repository link into the Inginious item for Assignment-0 provided on Moodle. Make sure you do submit your assignment prior to the deadline specified on Moodle. Inginious will pull the files from `code` and `app` directories and grade them using the same set of test cases as given in `test_preview.cpp`.
+In order to submit your assignment, paste your GitHub repository link into the Inginious item for Assignment-0 provided on Moodle. Make sure you do submit your assignment prior to the deadline specified on Moodle. Inginious will pull the files from `code` and `app` directories and grade them using the same set of test cases as given in `test.cpp`.
