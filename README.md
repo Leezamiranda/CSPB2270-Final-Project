@@ -165,11 +165,11 @@ You can run the above steps as many times as you want. Each time you commit/push
 
 ### Test Cases
 
-Open up the test code in the `/tests` directory to see what test cases you need to pass to get points on the assignment. For this assignment this is a file called `test.cpp` but the exact name will differ from assignment to assignment. **It will be extremely useful for you to be able to read and understand what the test cases are doing.** You can learn from the unit tests and there are often hints contained in them (intentionally or otherwise).
+Open up the test code in the `/tests` directory to see what test cases you need to pass to get points on the assignment. For this assignment this is a file called `test_hw.cpp` but the exact name will differ from assignment to assignment. **It will be extremely useful for you to be able to read and understand what the test cases are doing.** You can learn from the unit tests and there are often hints contained in them (intentionally or otherwise).
 
 #### Part 1
 
-In `test.cpp` scroll down until you find the test function labeled `TestFooA`. You can see that this is a unit test for the `fooA()` function. An assertion is used to check the output for correctness. Go to `/code/functions.cpp` to see if you can implement this function to return the correct output (again, this is intentionally trivial.) Once you have written the code and you want to check your solution, run `make` (remember to stay in the `build` directory). Then run the test executable `run_tests` and see if you pass the first test case. _If you are happy with your code, go ahead and run through the steps described above in the Checking code into GitHub section._
+In `test_hw.cpp` scroll down until you find the test function labeled `TestFooA`. You can see that this is a unit test for the `fooA()` function. An assertion is used to check the output for correctness. Go to `/code/functions.cpp` to see if you can implement this function to return the correct output (again, this is intentionally trivial.) Once you have written the code and you want to check your solution, run `make` (remember to stay in the `build` directory). Then run the test executable `run_tests` and see if you pass the first test case. _If you are happy with your code, go ahead and run through the steps described above in the Checking code into GitHub section._
 
 #### Part 2
 
@@ -177,4 +177,4 @@ Now let's take a look at the next test case, `TestApp_1`. This one actually runs
 
 ## Submission
 
-In order to submit your assignment, paste your GitHub repository link into the Inginious item for Assignment-0 provided on Moodle. Make sure you do submit your assignment prior to the deadline specified on Moodle. Inginious will pull the files from `code` and `app` directories and grade them using the same set of test cases as given in `test.cpp`.
+In order to submit your assignment, paste your GitHub repository link into the Inginious item for Assignment-0 provided on Moodle. Make sure you do submit your assignment prior to the deadline specified on Moodle. Inginious will pull the files from `code` and `app` directories and grade them using the same set of test cases as given in `test_hw.cpp`.
