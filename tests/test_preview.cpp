@@ -91,7 +91,7 @@ TEST_F(test_x, TestFooA) {
   add_points_to_grade(50);
 }
 
-TEST_F(test_x, TestApp_1) {
+TEST_F(test_x, TestApp) {
   string resp = exec("./run_app hello penguin");
   string desired_result = "hello penguin\n";
   ASSERT_EQ(resp, desired_result);

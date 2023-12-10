@@ -8,10 +8,11 @@ int main(int argc, char *argv[]) {
   // You can also simply run the unit tests and study the output for guidance.
   //
   // Hint: you will need to output a certain text string to standard output.
-  // This should be a single line of code.
+  // This should be a single line of code. It is _not_ a return statement.
   //
   // The homework assignments typically will not run unit tests against your
   // application. This is just to show you how that could be done if you want
   // to write your own tests against your app.
+
   return 0;
 }

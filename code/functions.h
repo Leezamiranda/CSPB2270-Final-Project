@@ -1,9 +1,9 @@
 #ifndef READFILE_H__
 #define READFILE_H__
 
-#include <string>
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
