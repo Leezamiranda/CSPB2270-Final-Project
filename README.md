@@ -138,7 +138,7 @@ We intentionally made this part trivial. In the future assignments, the initial 
 
 1. After running the application, determine what is being tested for this assignment See the **Test Cases** section below.
 2. Make a modification to the code to **Pass** the test. (hint: each time you make changes to the code, be sure to save your edits to the code, _make_ the application with the new code, and then test the resulting application)
-3. We suggest that you save your save the version of your code each time you get a test to pass. Make sure to save it both locally and on the GitHub server.
+3. We suggest that you save your code each time you get a test to pass. Make sure to save it both locally and on the GitHub server.
 
 ### Checking code into GitHub
 
