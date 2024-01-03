@@ -165,7 +165,7 @@ You can run the above steps as many times as you want. Each time you commit/push
 
 ### Test Cases
 
-Open up the test code in the `/tests` directory to see what test cases you need to pass to get points on the assignment. For this assignment this is a file called `test_hw.cpp` but the exact name will differ from assignment to assignment. **It will be extremely useful for you to be able to read and understand what the test cases are doing.** You can learn from the unit tests and there are often hints contained in them (intentionally or otherwise).
+Open up the test code in the `/tests` directory to see what test cases you need to pass to get points on the assignment. For this assignment this is a file called `test_hw.cpp`. **It will be extremely useful for you to be able to read and understand what the test cases are doing.** You can learn from the unit tests and there are often hints contained in them (intentionally or otherwise).
 
 #### Part 1
 
