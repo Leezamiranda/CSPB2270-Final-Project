@@ -66,7 +66,7 @@ The good news is you now never have to do this again! Whenever you want to clone
 
 ## Local computer setup
 
-In order for the above to work, you need to have git, a C++ toolchain, and CMake installed. On a Mac, you can install git and the C++ toolchain by installing XCode developer tools. You can install CMake via Homebrew (go to the [Homebrew website](https://brew.sh/) and follow the directions, and then install CMake with `brew install cmake`.
+This is optional. In order for the above to work on your local computer, you need to have git, a C++ toolchain, and CMake installed. On a Mac, you can install git and the C++ toolchain by installing XCode developer tools. You can install CMake via Homebrew (go to the [Homebrew website](https://brew.sh/) and follow the directions, and then install CMake with `brew install cmake`.
 
 You'll need an editor. Students in the recent past have had good luck with VS Code and CLion.
 
@@ -92,7 +92,7 @@ git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-<your_github_h
 
 5. At this point you can begin working with your code. We recommend that you use the VSCode editor environment. Go to `File -> New -> Launcher` and click on `VS Code IDE`. This opens a new browser tab.
 
-6. Within VS Code, select `File -> Open Folder...` and then find the directory you just cloned and press OK. It should be `/home/jovyan/hw-NN-homework-username`. In JupyterHub your username is always `jovyan`. This is unique to the CSEL environment. On your local machine it will be something else. New terminals by default will have a current working directory to the folder you open.Run ``
+6. Within VS Code, select `File -> Open Folder...` and then find the directory you just cloned and press OK. It should be `/home/jovyan/hw-NN-homework-username`. In JupyterHub your username is always `jovyan`. This is unique to the CSEL environment. On your local machine it will be something else. New terminals by default will have a current working directory to the folder you open. Later on, if nothing you do seems to work, it might be that your editor is operating out of the wrong directory.
 
 7. Before we start writing any code, let's compile the starter code and see how we can run the executables.
 
