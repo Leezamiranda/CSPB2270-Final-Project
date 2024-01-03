@@ -41,13 +41,13 @@ The above `git clone` command uses an ssh key to securely identify who you are t
 First make a public/private key pair. Be sure to edit this command to use the email address that GitHub knows about. It will ask you questions; you can just hit Enter to accept the default file name and to not set a passphrase.
 
 ```console
-$ ssh-keygen -t ed25519 -C "your_email@example.com" # generate a public/private key pair
+ssh-keygen -t ed25519 -C "your_email@example.com" # generate a public/private key pair
 ```
 
 Now you have two new files in your `~/.ssh` directory: `id_ed25519` (the private key) and `id_ed25519.pub` (the public key). We need to copy the public key into the clipboard, and (in the next step) paste it into GitHub. First, spill out the contents of your _public_ key to console like this:
 
 ```console
-$ cat .ssh/id_ed25519.pub
+cat .ssh/id_ed25519.pub
 ```
 
 It will produce something like `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFDNwrIYl7vb4SfjUTDVz6q3VLeo9WROMyM7N/mkkaot your_email@example.com` to the console. Select and copy that text to your clipboard.
@@ -57,7 +57,7 @@ Now open a browser to your GitHub SSH Key settings at [https://github.com/settin
 Go back to your terminal and try to clone the homework repository.
 
 ```console
-$ git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-johnsogg.git
+git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-johnsogg.git
 ```
 
 The first time you do this it will say something about "the authenticity of the host can't be established". You can ignore this and just hit Enter. It should clone your repository.
@@ -85,7 +85,7 @@ Alternately, you can use the CSEL environment's JupyterHub to do everything in a
 4. Now you are ready to _clone_ your repository from the remote GitHub repo to your local JupyterHub directory. You can do so by issuing the following command, replacing the SSH URL with your personal one. You can find your unique URL by clicking on the green _Code_ icon on your GitHub page.
 
 ```console
-$ git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-<your_github_handle>.git
+git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-<your_github_handle>.git
 ```
 
 - You can also clone a repository within the JupyterHub graphical interface. See video https://youtu.be/M293X5ssks4 for an example of cloning a repository using the built-in interface to Git.
@@ -101,19 +101,19 @@ $ git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-<your_github
    - Navigate to `build` directory:
 
    ```console
-   $ cd build/
+   cd build/
    ```
 
    - Run `cmake` to set up the build environment (creates files in _build_ subdirectory that are needed to build the application). Note the double dots!
 
    ```console
-   $ cmake ..
+   cmake ..
    ```
 
    - Now compile and build the executables:
 
    ```console
-   $ make
+   make
    ```
 
    - Now we have two executable ready to run, `run_app` and `run_tests`
@@ -123,7 +123,7 @@ $ git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-<your_github
      - Both executables will be located within the build directory, so run the following terminal command to execute:
 
    ```console
-   $ ./run_app
+   ./run_app
    ```
 
 8. Each time you modify a source file (like `main.cpp`) you must rebuild the executables.
@@ -147,19 +147,19 @@ We intentionally made this part trivial. In the future assignments, the initial 
 1. Stage your changes for a commit. This means that any changes you want to save, need to be added explicitly. (Note that you have all kinds of files that are present in your repository. You only need to add the ones you have changed and want to save.) For example, let's say we want to stage the changes we made in `functions.cpp`.
 
    ```console
-   $ git add functions.cpp
+   git add functions.cpp
    ```
 
 2. Commit the changes to our local repository. The `-m` option allows you to add the required commit comment on the command line. Use a short comment that has meaning about what changes were made (e.g. "fixed output for test 2" or "added comments to all functions")
 
    ```console
-   $ git commit -m 'this is my first commit'
+   git commit -m 'this is my first commit'
    ```
 
 3. Finally, push the changes from your local version of the repo to the remote repo on GitHub.
 
    ```console
-   $ git push
+   git push
    ```
 
 You can run the above steps as many times as you want. Each time you commit/push your changes, a new commit number will be added to your repository. If ever you need to go back to a previous commit, you can do that with more advanced usage of the git tool.
