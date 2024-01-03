@@ -23,8 +23,9 @@ In general, the workflow for each assignment will be the same. I'll explain in w
 To summarize (this might not work for you right away - see below if that is the case):
 
 ```bash
-$ git clone git@github.com:cu-cspb-2270-Fall-2023/pa9-johnsogg.git # clone your personal repo (for username 'johnsogg')
-$ cd pa9-johnsogg/build # change directories into the repository's 'build' directory
+# clone your personal repo (for username 'johnsogg')
+$ git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-johnsogg.git 
+$ cd hw-00-git-setup-johnsogg/build # change directories into the repo's 'build' directory
 $ cmake .. # configure for building. Note the two dots! Very important!
 $ make # build your code
 $ ./run_tests # execute the unit tests
@@ -56,7 +57,7 @@ Now open a browser to your GitHub SSH Key settings at [https://github.com/settin
 Go back to your terminal and try to clone the homework repository.
 
 ```console
-$ git clone git@github.com:cu-cspb-2270-Fall-2023/pa0-johnsogg.git
+$ git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-johnsogg.git
 ```
 
 The first time you do this it will say something about "the authenticity of the host can't be established". You can ignore this and just hit Enter. It should clone your repository.
@@ -84,14 +85,14 @@ Alternately, you can use the CSEL environment's JupyterHub to do everything in a
 4. Now you are ready to _clone_ your repository from the remote GitHub repo to your local JupyterHub directory. You can do so by issuing the following command, replacing the SSH URL with your personal one. You can find your unique URL by clicking on the green _Code_ icon on your GitHub page.
 
 ```console
-$ git clone https://github.com/cu-cspb-2270-Spring-2022/assignment-0-<your_github_handle>.git
+$ git clone git@github.com:cu-cspb-2270-Spring-2024/hw-00-git-setup-<your_github_handle>.git
 ```
 
 - You can also clone a repository within the JupyterHub graphical interface. See video https://youtu.be/M293X5ssks4 for an example of cloning a repository using the built-in interface to Git.
 
 5. At this point you can begin working with your code. We recommend that you use the VSCode editor environment. Go to `File -> New -> Launcher` and click on `VS Code IDE`. This opens a new browser tab.
 
-6. Within VS Code, select `File -> Open Folder...` and then find the directory you just cloned and press OK. It should be `/home/jovyan/paN-homework-username`. In JupyterHub your username is always `jovyan`. This is unique to the CSEL environment. On your local machine it will be something else. New terminals by default will have a current working directory to the folder you open.Run ``
+6. Within VS Code, select `File -> Open Folder...` and then find the directory you just cloned and press OK. It should be `/home/jovyan/hw-NN-homework-username`. In JupyterHub your username is always `jovyan`. This is unique to the CSEL environment. On your local machine it will be something else. New terminals by default will have a current working directory to the folder you open.Run ``
 
 7. Before we start writing any code, let's compile the starter code and see how we can run the executables.
 
