@@ -13,6 +13,7 @@ int main(int argc, char* argv[]) {
   // The homework assignments typically will not run unit tests against your
   // application. This is just to show you how that could be done if you want to
   // write your own tests against your app.
+  cout << "hello penguin" << endl;
 
   return 0;
 }

@@ -5,4 +5,5 @@ int fooA() {
   // tests are often a guide to understanding the homework.
   //
   // Hint: a single simple statement can make the test pass.
+  return 7;
 }
