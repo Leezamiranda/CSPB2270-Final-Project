@@ -3,16 +3,31 @@
 
 #include <vector>
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
+
+class Task {
+public:
+    string taskName;
+    time_t startTime;
+    int recurrenceInterval;
+
+    Task(const string& name, time_t startTime, int recurrenceInterval);
+    
+    void reschedule();
+
+    void display() const;
+};
+
 class Node {
 public:
-    int key;
-    string data;
+    time_t key;
+    Task* data;
     vector<Node*> forward;
 
-    Node(int key, string data, int level);
+    Node(time_t key, Task* data, int level);
 };
 
 class SkipList {
@@ -24,18 +39,24 @@ private:
 
     int generateLevel();
 
-    Node* init_Node(int key, string data, int level);
+    Node* init_Node(time_t key, Task* data, int level);
 
 public:
+    Node* get_head() const{
+        return head;
+    }
+
     SkipList(int maxLevel, float probability);
 
     ~SkipList();
 
-    void insert(int key, string data);
+    void insert(Task* data);
 
-    string search(int key);
+    Task* search(time_t key);
 
-    void erase(int key);
+    void erase(time_t key);
+
+    void rescheduleTask(Node* node);
 };
 
 #endif // FUNCTIONS_H

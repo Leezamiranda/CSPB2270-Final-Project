@@ -2,17 +2,32 @@
 #include <cstdlib>
 #include <cmath>
 
-Node::Node(int key, string data, int level) {
+Node::Node(time_t key, Task* data, int level) {
     this->key = key;
     this->data = data;
     this->forward = vector<Node*>(level + 1, nullptr);
+}
+
+Task::Task(const string& name, time_t startTime, int recurrenceInterval) {
+    this->taskName = name;
+    this->startTime = startTime;
+    this->recurrenceInterval = recurrenceInterval;
+}
+
+void Task::reschedule(){
+    startTime += recurrenceInterval *60 *60 *24;
+}
+
+void Task::display() const {    
+    cout << "Task: " << taskName << 
+    ", Recurring every: " << recurrenceInterval << " days" << endl;   
 }
 
 SkipList::SkipList(int maxLevel, float probability) {
     this->maxLevel = maxLevel;
     this->probability = probability;
     this->currentLevel = 0;
-    this->head = new Node(-1, "", maxLevel);
+    this->head = new Node(-1, nullptr, maxLevel);
 }
 
 SkipList::~SkipList() {
@@ -32,11 +47,12 @@ int SkipList::generateLevel() {
     return level;
 }
 
-Node* SkipList::init_Node(int key, string data, int level) {
+Node* SkipList::init_Node(time_t key, Task* data, int level) {
     return new Node(key, data, level);
 }
 
-void SkipList::insert(int key, string data) {
+void SkipList::insert(Task* data) {
+    time_t key = data->startTime;
     vector<Node*> update(maxLevel + 1, nullptr);
     Node* cursor = head;
 
@@ -68,7 +84,7 @@ void SkipList::insert(int key, string data) {
     }
 }
 
-string SkipList::search(int key){
+Task* SkipList::search(time_t key){
     Node* cursor = head;
     for(int i = currentLevel; i >= 0; i--){
         while(cursor->forward[i] != nullptr && cursor->forward[i]->key < key){
@@ -80,11 +96,11 @@ string SkipList::search(int key){
         return cursor->data;
     }
     else{
-        return "Entry does not exist";
+        return nullptr;
     }
 }
 
-void SkipList::erase(int key){
+void SkipList::erase(time_t key){
     vector<Node*> update(maxLevel + 1, nullptr);
     Node* cursor  = head;
 
@@ -107,3 +123,13 @@ void SkipList::erase(int key){
     }
 }
 
+void SkipList::rescheduleTask(Node* node) {
+    Task* task = node->data;
+    time_t newKey = node->key + (node->data->recurrenceInterval * 60 *60 * 24);
+    while(search(newKey) != nullptr) {
+        newKey += 1;
+    }
+    erase(node->key);
+    task->startTime = newKey;
+    insert(task);
+}

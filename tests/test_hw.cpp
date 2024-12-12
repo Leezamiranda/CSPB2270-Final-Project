@@ -1,67 +1,111 @@
 #include "../code/functions.h"
 #include <iostream>
+#include <ctime>
+
 using namespace std;
 
-void testInsert(SkipList& list) {
-    cout << "Testing Insert...\n";
-
-    list.insert(3, "Three");
-    list.insert(7, "Seven");
-    list.insert(9, "Nine");
-    list.insert(12, "Twelve");
-
-    cout << "Expected: Three, Found: " << list.search(3) << endl;
-    cout << "Expected: Seven, Found: " << list.search(7) << endl;
-    cout << "Expected: Nine, Found: " << list.search(9) << endl;
-    cout << "Expected: Twelve, Found: " << list.search(12) << endl;
+void displaySkipList(SkipList& list) {
+    Node* cursor = list.get_head()->forward[0]; 
+    while (cursor != nullptr) {
+        cout << "Key: " << cursor->key << ", ";
+        cursor->data->display(); 
+        cursor = cursor->forward[0];
+    }
+    cout << endl;
 }
+
+
+void testInsert(SkipList& list) {
+    cout << "Test: Inserting Tasks\n";
+
+    time_t now = time(nullptr);
+    Task* task1 = new Task("Daily Report", now + 24 * 60 * 60, 1); 
+    Task* task2 = new Task("Weekly Meeting", now + 7 * 24 * 60 * 60, 7); 
+    Task* task3 = new Task("Monthly Review", now + 30 * 24 * 60 * 60, 30); 
+
+    list.insert(task1);
+    list.insert(task2);
+    list.insert(task3);
+
+    Node* cursor = list.get_head()->forward[0];
+    bool pass = true;
+
+    
+    if (cursor->data->taskName != "Daily Report") pass = false;
+    cursor = cursor->forward[0];
+    if (cursor->data->taskName != "Weekly Meeting") pass = false;
+    cursor = cursor->forward[0];
+    if (cursor->data->taskName != "Monthly Review") pass = false;
+
+    cout << (pass ? "PASS" : "FAIL") << ": Tasks inserted correctly.\n";
+}
+
 
 void testSearch(SkipList& list) {
-    cout << "Testing Search...\n";
+    cout << "Test: Searching for Tasks\n";
 
-    // Test for existing keys
-    cout << "Search 3: " << (list.search(3) == "Three" ? "Pass" : "Fail") << endl;
-    cout << "Search 9: " << (list.search(9) == "Nine" ? "Pass" : "Fail") << endl;
-
-    // Test for non-existing keys
-    cout << "Search 100: " << list.search(100) << " (Expected: Entry does not exist)" << endl;
+    time_t now = time(nullptr);
+    Task* foundTask = list.search(now + 24 * 60 * 60); 
+    if (foundTask != nullptr && foundTask->taskName == "Daily Report") {
+        cout << "PASS: Found Task: ";
+        foundTask->display();
+    } else {
+        cout << "FAIL: Task not found or incorrect task returned.\n";
+    }
 }
 
-void testErase(SkipList& list) {
-    cout << "Testing Erase...\n";
 
-    list.erase(3); // Erase existing key
-    cout << "Erase 3: " << list.search(3) << " (Expected: Entry does not exist)" << endl;
+void testDelete(SkipList& list) {
+    cout << "Test: Deleting Tasks\n";
 
-    list.erase(100); // Erase non-existing key
-    cout << "Erase 100: (No error expected)\n";
-}
+    time_t now = time(nullptr);
+    list.erase(now + 24 * 60 * 60); 
 
-void testEdgeCases(SkipList& list) {
-    cout << "Testing Edge Cases...\n";
-
-    // Insert duplicate key
-    list.insert(7, "Seven Updated");
-    cout << "Update key 7: " << list.search(7) << " (Expected: Seven Updated)" << endl;
-
-    // Insert a large range of numbers
-    for (int i = 1; i <= 10; i++) {
-        list.insert(i * 10, "Value" + to_string(i * 10));
+    Task* foundTask = list.search(now + 24 * 60 * 60);
+    if (foundTask == nullptr) {
+        cout << "PASS: Task successfully deleted.\n";
+    } else {
+        cout << "FAIL: Task still exists after deletion.\n";
     }
 
-    cout << "Search 10: " << list.search(10) << " (Expected: Value10)" << endl;
-    cout << "Search 100: " << list.search(100) << " (Expected: Value100)" << endl;
+    cout << "Current Skip List:\n";
+    displaySkipList(list);
+}
+
+
+void testReschedule(SkipList& list) {
+    cout << "Test: Rescheduling Tasks\n";
+
+    Node* node = list.get_head()->forward[0]; 
+    if (node != nullptr) {
+        cout << "Rescheduling Task: ";
+        node->data->display();
+
+        time_t oldKey = node->key;
+        list.rescheduleTask(node);
+
+        
+        Task* rescheduledTask = list.search(oldKey + node->data->recurrenceInterval * 60 * 60 * 24);
+        if (rescheduledTask != nullptr && rescheduledTask->taskName == node->data->taskName) {
+            cout << "PASS: Task rescheduled correctly.\n";
+        } else {
+            cout << "FAIL: Task not rescheduled correctly.\n";
+        }
+    } else {
+        cout << "FAIL: No task to reschedule.\n";
+    }
+
+    cout << "Current Skip List:\n";
+    displaySkipList(list);
 }
 
 int main() {
-    // Create a Skip List
-    SkipList list(5, 0.5); // Max level = 5, Probability = 0.5
+    SkipList list(5, 0.5); 
 
-    // Run tests
     testInsert(list);
     testSearch(list);
-    testErase(list);
-    testEdgeCases(list);
+    testDelete(list);
+    testReschedule(list);
 
     return 0;
 }
