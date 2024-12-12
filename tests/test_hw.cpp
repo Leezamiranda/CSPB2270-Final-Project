@@ -1,99 +1,67 @@
-// If you change anything in this file, your changes will be ignored
-// in your homework submission.
-// Chekout TEST_F functions bellow to learn what is being tested.
 #include "../code/functions.h"
-#include <gtest/gtest.h>
-
-#include <array>
-#include <cmath>
-#include <fstream>
 #include <iostream>
-#include <string>
-#include <vector>
-
 using namespace std;
 
-class test_x : public ::testing::Test {
-protected:
-  // This function runs only once before any TEST_F function
-  static void SetUpTestCase() {
-    std::ofstream outgrade("./total_grade.txt");
-    if (outgrade.is_open()) {
-      outgrade.clear();
-      outgrade << (int)0;
-      outgrade.close();
-    }
-  }
+void testInsert(SkipList& list) {
+    cout << "Testing Insert...\n";
 
-  // This function runs after all TEST_F functions have been executed
-  static void TearDownTestCase() {
-    std::ofstream outgrade("./total_grade.txt");
-    if (outgrade.is_open()) {
-      outgrade.clear();
-      outgrade << (int)std::ceil(100 * total_grade / max_grade);
-      outgrade.close();
-      std::cout << "Total Grade is : "
-                << (int)std::ceil(100 * total_grade / max_grade) << " out of 20"
-                << std::endl;
-    }
-  }
+    list.insert(3, "Three");
+    list.insert(7, "Seven");
+    list.insert(9, "Nine");
+    list.insert(12, "Twelve");
 
-  void add_points_to_grade(double points) {
-    if (!::testing::Test::HasFailure()) {
-      total_grade += points;
-    }
-  }
-
-  // this function runs before every TEST_F function
-  void SetUp() override {}
-
-  // this function runs after every TEST_F function
-  void TearDown() override {
-    std::ofstream outgrade("./total_grade.txt");
-    if (outgrade.is_open()) {
-      outgrade.clear();
-      outgrade << (int)std::ceil(100 * total_grade / max_grade);
-      outgrade.close();
-    }
-  }
-
-  static double total_grade;
-  static double max_grade;
-};
-
-double test_x::total_grade = 0;
-double test_x::max_grade = 100;
-
-/////////////////////////////////////////
-// Test Helper Functions
-/////////////////////////////////////////
-
-std::string exec(const char* cmd) {
-  std::array<char, 128> buffer;
-  std::string result;
-  std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
-  if (!pipe) {
-    throw std::runtime_error("popen() failed!");
-  }
-  while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
-    result += buffer.data();
-  }
-  return result;
+    cout << "Expected: Three, Found: " << list.search(3) << endl;
+    cout << "Expected: Seven, Found: " << list.search(7) << endl;
+    cout << "Expected: Nine, Found: " << list.search(9) << endl;
+    cout << "Expected: Twelve, Found: " << list.search(12) << endl;
 }
 
-/////////////////////////////////////////
-// Tests start here
-/////////////////////////////////////////
+void testSearch(SkipList& list) {
+    cout << "Testing Search...\n";
 
-TEST_F(test_x, TestFooA) {
-  int fooAreturn = fooA();
-  ASSERT_EQ(7, fooAreturn);
-  add_points_to_grade(50);
+    // Test for existing keys
+    cout << "Search 3: " << (list.search(3) == "Three" ? "Pass" : "Fail") << endl;
+    cout << "Search 9: " << (list.search(9) == "Nine" ? "Pass" : "Fail") << endl;
+
+    // Test for non-existing keys
+    cout << "Search 100: " << list.search(100) << " (Expected: Entry does not exist)" << endl;
 }
 
-TEST_F(test_x, TestApp) {
-  string resp = exec("./run_app hello penguin");
-  string desired_result = "hello penguin\n";
-  ASSERT_EQ(resp, desired_result);
-  add_points_to_grade(50);
+void testErase(SkipList& list) {
+    cout << "Testing Erase...\n";
+
+    list.erase(3); // Erase existing key
+    cout << "Erase 3: " << list.search(3) << " (Expected: Entry does not exist)" << endl;
+
+    list.erase(100); // Erase non-existing key
+    cout << "Erase 100: (No error expected)\n";
+}
+
+void testEdgeCases(SkipList& list) {
+    cout << "Testing Edge Cases...\n";
+
+    // Insert duplicate key
+    list.insert(7, "Seven Updated");
+    cout << "Update key 7: " << list.search(7) << " (Expected: Seven Updated)" << endl;
+
+    // Insert a large range of numbers
+    for (int i = 1; i <= 10; i++) {
+        list.insert(i * 10, "Value" + to_string(i * 10));
+    }
+
+    cout << "Search 10: " << list.search(10) << " (Expected: Value10)" << endl;
+    cout << "Search 100: " << list.search(100) << " (Expected: Value100)" << endl;
+}
+
+int main() {
+    // Create a Skip List
+    SkipList list(5, 0.5); // Max level = 5, Probability = 0.5
+
+    // Run tests
+    testInsert(list);
+    testSearch(list);
+    testErase(list);
+    testEdgeCases(list);
+
+    return 0;
 }

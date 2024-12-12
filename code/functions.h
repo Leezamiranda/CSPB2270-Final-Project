@@ -1,12 +1,41 @@
-#ifndef READFILE_H__
-#define READFILE_H__
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
 
-#include <fstream>
+#include <vector>
 #include <iostream>
-#include <string>
 
 using namespace std;
 
-int fooA();
+class Node {
+public:
+    int key;
+    string data;
+    vector<Node*> forward;
 
-#endif // READFILE_H__
+    Node(int key, string data, int level);
+};
+
+class SkipList {
+private:
+    int maxLevel;
+    float probability;
+    Node* head;
+    int currentLevel;
+
+    int generateLevel();
+
+    Node* init_Node(int key, string data, int level);
+
+public:
+    SkipList(int maxLevel, float probability);
+
+    ~SkipList();
+
+    void insert(int key, string data);
+
+    string search(int key);
+
+    void erase(int key);
+};
+
+#endif // FUNCTIONS_H
